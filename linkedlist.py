@@ -7,6 +7,7 @@ class LinkedList:
     def __init__(self):
         self.head=None
 
+#append
     def append(self,data):
         new_node=Node(data)
         if self.head is None:
@@ -16,7 +17,7 @@ class LinkedList:
             while cur.next:
                 cur=cur.next
             cur.next=new_node
-
+#insert
     def insert(self,data,pos):
         if pos>self.count():
             print("Error")
@@ -35,7 +36,7 @@ class LinkedList:
                 cur=cur.next
             new_node.next=cur.next
             cur.next=new_node
-
+#count
     def count(self):
         total=0
         cur=self.head
@@ -44,13 +45,14 @@ class LinkedList:
             total+=1
         return total
 
-        
+ #display       
     def display(self):
         cur=self.head
         while cur:
             print (cur.data)
             cur=cur.next
-
+            
+#Delete
     def delete(self,index):
         count=0
         if index>=self.count():
@@ -65,18 +67,21 @@ class LinkedList:
                 cur=cur.next
                 i+=1
             cur.next=cur.next.next
+            
+  #Search
     def Search(self,data):
         cur=self.head
         i=0
         while cur and i<self.count():
             if cur.data==data:
-                print(data+'is found at index'+i)
+                print('{} is found at index {}'.format(data,i))
                 return
             else:
                 cur=cur.next
                 i+=1
         print('{} is not present'.format(data))
 
+#Setvalue
     def Set(self,data,pos):
         index=0
         cur=self.head
